@@ -30,3 +30,63 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+
+
+let currentLanguage = 'en';
+function switchLanguage(lang) {
+    currentLanguage = lang;
+    updateContent();
+}
+
+function updateContent() {
+    document.querySelectorAll('.navbar ul li').forEach(item => {
+        const anchor = item.querySelector('a');
+        const sectionId = anchor.getAttribute('href').substring(1); // Get section id without '#'
+        switch (currentLanguage) {
+            case 'en':
+                switch (sectionId) {
+                    case 'welcome':
+                        anchor.textContent = 'Welcome';
+                        break;
+                    case 'about':
+                        anchor.textContent = 'About Me';
+                        break;
+                    case 'skills':
+                        anchor.textContent = 'Knowledge';
+                        break;
+                    case 'contact':
+                        anchor.textContent = 'Contact';
+                        break;
+                }
+                break;
+            case 'es':
+                switch (sectionId) {
+                    case 'welcome':
+                        anchor.textContent = 'Bienvenida';
+                        break;
+                    case 'about':
+                        anchor.textContent = 'Sobre Mí';
+                        break;
+                    case 'skills':
+                        anchor.textContent = 'Conocimientos';
+                        break;
+                    case 'contact':
+                        anchor.textContent = 'Contacto';
+                        break;
+                }
+                break;
+        }
+    });
+}
+
+
+function toggleLanguageDropdown() {
+    var dropdown = document.getElementById('languageDropdown');
+    dropdown.classList.toggle('show');
+}
+
+function switchLanguage(lang) {
+    console.log('Switching to ' + lang);
+}
