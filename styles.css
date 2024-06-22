@@ -1,9 +1,8 @@
-/* Base styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    background-color: #2C3E50; /* Dark Slate Blue */
-    color: #ECF0F1; /* Light Gray */
+    background-color: #2C3E50;
+    color: #ECF0F1;
     overflow-x: hidden;
 }
 
@@ -16,7 +15,6 @@ body {
     align-items: center;
 }
 
-/* Section styles */
 .section {
     padding: 60px 20px;
     margin: 20px 0;
@@ -47,23 +45,23 @@ body {
 }
 
 .section.about {
-    background-color: #3498DB; /* Sky Blue */
+    background-color: #3498DB;
 }
 
 .section.education {
-    background-color: #F5B041; /* Bright Orange */
+    background-color: #F5B041;
 }
 
 .section.skills {
-    background-color: #EC7063; /* Soft Red */
+    background-color: #EC7063;
 }
 
 .section.courses {
-    background-color: #3498DB; /* Sky Blue */
+    background-color: #3498DB;
 }
 
 .section.contact {
-    background-color: #F5B041; /* Bright Orange */
+    background-color: #F5B041;
 }
 
 .section a {
@@ -86,13 +84,11 @@ body {
     margin-right: 10px;
 }
 
-/* Reveal animation */
 .section.reveal {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Responsive design */
 @media (max-width: 600px) {
     .section {
         padding: 40px 10px;
@@ -100,7 +96,7 @@ body {
 }
 
 .navbar {
-    background-color: #34495E; /* Dark Blue */
+    background-color: #34495E;
     padding: 10px 0;
     text-align: center;
 }
@@ -117,7 +113,7 @@ body {
 }
 
 .navbar ul li a {
-    color: #ECF0F1; /* Light Gray */
+    color: #ECF0F1;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
