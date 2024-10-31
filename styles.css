@@ -1,8 +1,21 @@
+/* Efectos de transición y animación */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo general */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
     margin: 0;
-    background-color: #2C3E50; /* Dark Slate Blue */
-    color: #ECF0F1; /* Light Gray */
+    background-color: #2C3E50;
+    color: #ECF0F1;
     overflow-x: hidden;
 }
 
@@ -13,6 +26,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: fadeInUp 1s ease-in-out;
 }
 
 .section {
@@ -20,14 +34,16 @@ body {
     margin: 20px 0;
     width: 100%;
     text-align: center;
-    opacity: 0;
-    transform: translateY(100px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-in-out;
 }
 
 .section h1, .section h2, .section h3 {
     margin: 0 0 20px;
     font-weight: 500;
+    color: #16A085;
 }
 
 .section p, .section ul {
@@ -42,62 +58,49 @@ body {
 
 .section ul li {
     margin: 10px 0;
+    animation: fadeInUp 1s ease-in-out;
 }
 
 .section.about {
-    background-color: #3498DB;
+    background: linear-gradient(135deg, #1abc9c, #3498db);
+    color: white;
+    animation: fadeInUp 1.2s ease-in-out;
 }
 
-.section.education {
-    background-color: #F5B041;
-}
-
-.section.skills {
-    background-color: #EC7063;
-}
-
-.section.courses {
-    background-color: #3498DB;
-}
-
-.section.contact {
-    background-color: #F5B041;
+.section.education, .section.skills, .section.contact, .section.courses {
+    background: #34495E;
+    animation: fadeInUp 1.5s ease-in-out;
 }
 
 .section a {
-    color: #ECF0F1;
+    color: #F39C12;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .section a:hover {
-    text-decoration: underline;
-}
-
-.section h3 {
-    border-bottom: 2px solid #ECF0F1;
-    padding-bottom: 10px;
+    color: #E74C3C;
 }
 
 .social-icons img {
     width: 30px;
     height: 30px;
     margin-right: 10px;
+    transition: transform 0.3s;
 }
 
-.section.reveal {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media (max-width: 600px) {
-    .section {
-        padding: 40px 10px;
-    }
+.social-icons img:hover {
+    transform: scale(1.2);
 }
 
 .navbar {
     background-color: #34495E;
-    padding: 10px 0;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .container {
@@ -106,22 +109,16 @@ body {
     align-items: center;
 }
 
-.navbar-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
 .navbar-nav {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
 }
 
 .navbar-nav li {
-    display: inline-block;
     margin-right: 20px;
+    animation: fadeInUp 1s ease-in-out;
 }
 
 .navbar-nav li a {
@@ -129,12 +126,14 @@ body {
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .navbar-nav li a:hover {
-    text-decoration: underline;
+    color: #1ABC9C;
 }
 
+/* Botón de cambio de idioma */
 .switch {
     position: relative;
     display: inline-block;
@@ -145,7 +144,7 @@ body {
     position: absolute;
     top: 14px;
     pointer-events: none;
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Raleway', Arial, sans-serif;
     font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
@@ -154,91 +153,36 @@ body {
     text-align: center;
 }
 
-input.check-toggle-round-flat:checked ~ .off {
-    color: #4891c8;
-}
-
-input.check-toggle-round-flat:checked ~ .on {
-    color: #fff;
-}
-
-.switch > span.on {
-    left: 0;
-    padding-left: 2px;
-    color: #4891c8;
-}
-
-.switch > span.off {
-    right: 0;
-    padding-right: 4px;
-    color: #fff;
-}
-
-.check-toggle {
+.check-toggle-round-flat {
+    visibility: hidden;
     position: absolute;
     margin-left: -9999px;
-    visibility: hidden;
 }
-.check-toggle + label {
+
+.check-toggle-round-flat + label {
     display: block;
     position: relative;
     cursor: pointer;
     outline: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    width: 100px;
+    height: 40px;
+    background-color: #3498db;
+    border-radius: 20px;
+    transition: background-color 0.3s;
 }
 
-input.check-toggle-round-flat + label {
-    padding: 2px;
-    width: 97px;
-    height: 35px;
-    background-color: #4891c8;
-    -webkit-border-radius: 60px;
-    -moz-border-radius: 60px;
-    -ms-border-radius: 60px;
-    -o-border-radius: 60px;
-    border-radius: 60px;
-}
-input.check-toggle-round-flat + label:before, input.check-toggle-round-flat + label:after {
+.check-toggle-round-flat + label:after {
     display: block;
     position: absolute;
     content: "";
-}
-
-input.check-toggle-round-flat + label:before {
-    top: 2px;
-    left: 2px;
-    bottom: 2px;
-    right: 2px;
-    background-color: #4891c8;
-    -webkit-moz-border-radius: 60px;
-    -webkit-ms-border-radius: 60px;
-    -webkit-o-border-radius: 60px;
-    -webkit-border-radius: 60px;
-}
-
-input.check-toggle-round-flat + label:after {
-    top: 4px;
-    left: 4px;
-    bottom: 4px;
-    width: 48px;
+    width: 40px;
+    height: 40px;
     background-color: #fff;
-    -webkit-border-radius: 52px;
-    -moz-border-radius: 52px;
-    -ms-border-radius: 52px;
-    -o-border-radius: 52px;
-    border-radius: 52px;
-    -webkit-transition: margin 0.2s;
-    -moz-transition: margin 0.2s;
-    -o-transition: margin 0.2s;
-    transition: margin 0.2s;
+    border-radius: 50%;
+    transition: margin-left 0.3s;
 }
 
-input.check-toggle-round-flat:checked + label {
-}
-
-input.check-toggle-round-flat:checked + label:after {
-    margin-left: 44px;
+.check-toggle-round-flat:checked + label:after {
+    margin-left: 50px;
+    background-color: #1ABC9C;
 }
