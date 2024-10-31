@@ -6,10 +6,6 @@
     <title>Leonardo Cesías - Ingeniero de Software</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-
-
-    </style>
 </head>
 <body>
 <nav class="navbar">
@@ -71,20 +67,6 @@
     </section>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const sections = document.querySelectorAll(".section");
-        const revealSection = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("reveal");
-                    observer.unobserve(entry.target);
-                }
-            });
-        };
-        const observer = new IntersectionObserver(revealSection, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
-    });
-</script>
+<script src="script.js"></script>
 </body>
 </html>
